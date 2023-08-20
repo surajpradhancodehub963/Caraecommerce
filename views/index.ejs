@@ -1,0 +1,35 @@
+<%- include('./partials/header.ejs') %>
+<section id="hero">
+  <h4>Trade-in-offer</h4>
+  <h2>Super value deals</h2>
+  <h1>On all products</h1>
+  <p>Save more with coupons & up to 70% off!</p>
+  <button>Shop Now</button>
+</section>
+<section class="products py-4">
+  <h2 class="text-center">Featured Products</h2>
+  <p class="text-center">Summer Collection New Modern Design</p>
+  <div class="container">
+    <div class="row">
+      <% data.map((a)=>{ %>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+          <div class="product_card rounded">
+            <img
+              src="/upload/products/<%= a.image %>"
+              class="product_card_image rounded"
+              alt="sorry unable to load"
+              width="100%"
+            />
+            <button class="btn product_card_button"><a href="/product/<%= a._id.toHexString() %>">View</a></button>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<section id="banner">
+  <h4>Repair Services</h4>
+  <h2>Up to <span>70% off</span> - All t-Shirts & Accessories</h2>
+  <button class="normal">Explore More</button>
+</section>
+<%- include('./partials/footer.ejs') %>

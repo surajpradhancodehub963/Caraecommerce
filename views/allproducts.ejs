@@ -1,0 +1,23 @@
+<%- include('./partials/header.ejs') %>
+<section class="products py-4">
+    <h2 class="text-center">All Products</h2>
+    <p class="text-center">available products on sale</p>
+    <div class="container">
+      <div class="row">
+        <% data.map((a)=>{ %>
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+            <div class="product_card rounded">
+              <img
+                src="/upload/products/<%= a.image %>"
+                class="product_card_image rounded"
+                alt="sorry unable to load"
+                width="100%"
+              />
+              <button class="btn product_card_button"><a href="/product/<%= a._id.toHexString() %>">View</a></button>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+<%- include('./partials/footer.ejs') %>

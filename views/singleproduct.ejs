@@ -1,0 +1,25 @@
+<%- include('./partials/header.ejs') %>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-5 col-sm-5 p-2">
+            <img src="/upload/products/<%= data.image %>" alt="" class="img-fluid" width="100%">
+        </div>
+        <div class="col-lg-8 col-md-7 col-sm-7 single_product p-3">
+            <h2><%= data.productname %></h2>
+            <h3>&#8377 <%= data.price %></h3>
+            <form action="/additemtoCart" method="post">
+                <select name="size" id="size" placeholder="Select Size">
+                    <option value="">Select Size</option>
+                    <% size.map((a)=>{ %>
+                        <option value="<%= a %>"><%= a %></option> 
+                    <% }) %>
+                </select>
+                <input type="hidden" name="productId" value="<%= data._id.toHexString() %>">
+                <button type="submit">Add To Cart</button>
+            </form>
+            <h4>Product Details</h4>
+            <p><%= data.description %></p> 
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer.ejs') %>
